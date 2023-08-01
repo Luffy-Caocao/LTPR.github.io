@@ -1,0 +1,9 @@
+/* styles.css */
+body {
+  background-image: url('51.png');
+  background-size: cover; /* 可选，用于调整背景图像的尺寸 */
+
+}
+p {
+  color: blue;
+}

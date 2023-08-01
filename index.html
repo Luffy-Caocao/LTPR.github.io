@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTPR服务器</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="style.css"> <!-- 如果有自定义样式，可以在这里引入 -->
+   <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <h1>欢迎来到LTPR服务器</h1>
+        <p>探索无限可能的方块世界！</p>
+    </header>
+
+    <section id="about">
+        <h2>关于我们</h2>
+        <p>我们是一家致力于打造最佳《我的世界》Java版服务器的团队。我们提供高质量的游戏环境和社区，让玩家们可以尽情享受《我的世界》的乐趣。</p>
+    </section>
+
+    <section id="features">
+        <h2>服务器特点</h2>
+        <ul>
+            <li>基于spigot1.20.1的服务器，可以创造多个世界</li>
+            <li>友好的社区和活跃的玩家群体。</li>
+            <li>支持插件，为玩家提供更多的乐趣和可能性。</li>
+            <li>服务器稳定，具备良好的性能和潜在的扩展性。</li>
+        </ul>
+    </section>
+<body>
+    <h2>服务器状态</h2>
+    <p>当前状态：<span class="status" id="serverStatus">正在检查...</span></p>
+    <p>在线玩家数：<span class="status" id="playerCount">正在检查...</span></p>
+  </div>
+
+  <script>
+    function checkServerStatus() {
+      fetch('https://api.mcsrvstat.us/2/k1.getmc.cn:15302') // 替换为您的服务器IP地址
+        .then(response => response.json())
+        .then(data => {
+          if (data.online) {
+            document.getElementById('serverStatus').innerHTML = '在线';
+            document.getElementById('serverStatus').classList.add('online');
+            document.getElementById('playerCount').innerHTML = data.players.online;
+            document.getElementById('playerCount').classList.add('online');
+          } else {
+            document.getElementById('serverStatus').innerHTML = '离线';
+            document.getElementById('serverStatus').classList.add('offline');
+            document.getElementById('playerCount').innerHTML = '-';
+          }
+        })
+        .catch(error => {
+          console.log('出现错误:', error);
+          document.getElementById('serverStatus').innerHTML = '无法连接到服务器';
+          document.getElementById('serverStatus').classList.add('offline');
+          document.getElementById('playerCount').innerHTML = '-';
+        });
+    }
+
+    setInterval(checkServerStatus, 5000);
+  </script>
+</body>
+
+    <section id="join">
+        <h2>加入我们</h2>
+        <p>想要加入我们的服务器？请按照以下步骤操作：</p>
+               <ol>
+	<a href="https://www.xbox.com/zh-cn/games/store/minecraft-java-bedrock-edition-for-pc/9nxp44l49shj" target="_blank">
+	购买《我的世界》Java版游戏。</a> 
+	<p>打开游戏，选择“多人游戏”。</p>
+       点击“添加服务器”并输入服务器地址。</p>
+  <title>点击复制内容</title>
+  <style>
+    .copy-button {
+      cursor: pointer;
+      padding: 5px 10px;
+      background-color: #eaeaea;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+ 服务器地址：<span id="copyText">k1.getmc.cn:15302</span></p>
+  <button class="copy-button" onclick="copyToClipboard()">点击复制</button>
+
+  <script>
+    function copyToClipboard() {
+      // 创建一个辅助元素
+      var copyText = document.getElementById("copyText");
+      var element = document.createElement("textarea");
+      element.value = copyText.innerText;
+      document.body.appendChild(element);
+
+      // 选择辅助元素的内容
+      element.select();
+
+      // 复制内容到剪贴板
+      document.execCommand("copy");
+
+      // 删除辅助元素
+      document.body.removeChild(element);
+
+      // 提示用户已复制
+      alert("已复制到剪贴板");
+    }
+  </script>            开始畅玩LTPR</p>
+
+        </ol>
+    </section>
+
+    </footer>
+</body>
+</html>
