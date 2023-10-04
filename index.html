@@ -92,13 +92,26 @@
 	          <p>联通专线:lt.ltpr.asia</p>
 	          <p>电信专线:dx.ltpr.asia</p>
   </script>            开始畅玩LTPR！</p>
-	<iframe src="https://ip.skk.moe/simple" style="width: 100%; border: 0"></iframe>
 
 
         </ol>
     </section>
     </footer>
-	<iframe src="https://ip.skk.moe/simple" style="width: 100%; border: 0"></iframe>
-
+<head>
+	<title>获取访客IP地址</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<p>您的IP地址是: <span id="ip"></span></p>
+	<script>
+		// 使用免费的ipify API获取访客的IP地址
+		fetch('https://api.ipify.org/?format=json')
+			.then(response => response.json())
+			.then(data => {
+				document.getElementById('ip').textContent = data.ip;
+			})
+			.catch(error => console.error(error));
+	</script>
+</body>
 </body>
 </html>
